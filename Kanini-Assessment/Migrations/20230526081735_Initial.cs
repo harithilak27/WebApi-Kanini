@@ -5,7 +5,7 @@
 namespace Kanini_Assessment.Migrations
 {
     /// <inheritdoc />
-    public partial class createDb : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,7 +30,9 @@ namespace Kanini_Assessment.Migrations
                 {
                     RoomId = table.Column<int>(type: "int", nullable: false),
                     HotelId = table.Column<int>(type: "int", nullable: false),
-                    HotelsHotelId = table.Column<int>(type: "int", nullable: false)
+                    HotelsHotelId = table.Column<int>(type: "int", nullable: false),
+                    RoomType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RoomPricePerNight = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

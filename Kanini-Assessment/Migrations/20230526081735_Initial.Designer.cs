@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kanini_Assessment.Migrations
 {
     [DbContext(typeof(HotelContext))]
-    [Migration("20230526060548_createDb")]
-    partial class createDb
+    [Migration("20230526081735_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,6 +53,14 @@ namespace Kanini_Assessment.Migrations
 
                     b.Property<int>("HotelsHotelId")
                         .HasColumnType("int");
+
+                    b.Property<string>("RoomPricePerNight")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoomType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RoomId");
 

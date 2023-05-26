@@ -51,6 +51,14 @@ namespace Kanini_Assessment.Migrations
                     b.Property<int>("HotelsHotelId")
                         .HasColumnType("int");
 
+                    b.Property<string>("RoomPricePerNight")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoomType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("RoomId");
 
                     b.HasIndex("HotelsHotelId");
@@ -61,12 +69,17 @@ namespace Kanini_Assessment.Migrations
             modelBuilder.Entity("Kanini_Assessment.Models.Rooms", b =>
                 {
                     b.HasOne("Kanini_Assessment.Models.Hotels", "Hotels")
-                        .WithMany()
+                        .WithMany("rooms")
                         .HasForeignKey("HotelsHotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Hotels");
+                });
+
+            modelBuilder.Entity("Kanini_Assessment.Models.Hotels", b =>
+                {
+                    b.Navigation("rooms");
                 });
 #pragma warning restore 612, 618
         }
