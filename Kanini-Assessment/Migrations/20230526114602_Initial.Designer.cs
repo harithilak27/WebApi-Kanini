@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kanini_Assessment.Migrations
 {
     [DbContext(typeof(HotelContext))]
-    [Migration("20230526094951_Initial")]
+    [Migration("20230526114602_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -71,6 +71,30 @@ namespace Kanini_Assessment.Migrations
                     b.HasIndex("HotelsHotelId");
 
                     b.ToTable("rooms");
+                });
+
+            modelBuilder.Entity("Kanini_Assessment.Models.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Roles")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("users");
                 });
 
             modelBuilder.Entity("Kanini_Assessment.Models.Rooms", b =>

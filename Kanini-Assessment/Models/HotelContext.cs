@@ -11,7 +11,7 @@ namespace Kanini_Assessment.Models
 
         public DbSet<Hotels> hotels { get; set; }
         public DbSet<Rooms> rooms { get; set; }
-
+        public DbSet<User> users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

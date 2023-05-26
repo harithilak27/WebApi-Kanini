@@ -7,42 +7,41 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Kanini_Assessment.Models;
 using Kanini_Assessment.Repository;
-using Microsoft.AspNetCore.Authorization;
+using Kanini_Assessment.Repository.Room;
 
 namespace Kanini_Assessment.Controllers
 {
-    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
-    public class HotelsController : ControllerBase
+    public class RoomsController : ControllerBase
     {
-        private readonly IHotel _context;
+        private readonly IRoom _context;
 
-        public HotelsController(IHotel context)
+        public RoomsController(IRoom context)
         {
             _context = context;
         }
 
         [HttpPost]
-        public async Task<ActionResult<Hotels>> PostHotel(Hotels hotel)
+        public async Task<ActionResult<Rooms>> PostRoom(Rooms room)
         {
-            try 
+            try
             {
-                var item = await _context.PostHotel(hotel);
+                var item = await _context.PostRoom(room);
                 return Ok(item);
             }
             catch (Exception err)
             {
                 return BadRequest(err.Message);
-            }      
+            }
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Hotels>>> GetHotels()
+        public async Task<ActionResult<IEnumerable<Rooms>>> GetRooms()
         {
             try
             {
-                var ht = await _context.GetHotels();
+                var ht = await _context.GetRooms();
                 return Ok(ht);
             }
             catch (Exception er)
@@ -52,11 +51,11 @@ namespace Kanini_Assessment.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Hotels>> GetHotel(int id)
+        public async Task<ActionResult<Rooms>> GetRoom(int id)
         {
             try
             {
-                var ht = await _context.GetHotel(id);
+                var ht = await _context.GetRoom(id);
                 return ht;
             }
             catch (Exception err)
@@ -66,11 +65,11 @@ namespace Kanini_Assessment.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Hotels>> PutHotel(int id, Hotels hotels)
+        public async Task<ActionResult<Rooms>> PutRoom(int id, Rooms room)
         {
             try
             {
-                var ht = await _context.PutHotel(id, hotels);
+                var ht = await _context.PutRoom(id, room);
                 return Ok(ht);
             }
             catch (Exception err)
@@ -80,10 +79,10 @@ namespace Kanini_Assessment.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<string> DeleteHotel(int id)
+        public async Task<string> DeleteRoom(int id)
         {
 
-            return await _context.DeleteHotel(id);
+            return await _context.DeleteRoom(id);
         }
     }
 }

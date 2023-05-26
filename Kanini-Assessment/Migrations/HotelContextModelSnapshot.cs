@@ -70,6 +70,30 @@ namespace Kanini_Assessment.Migrations
                     b.ToTable("rooms");
                 });
 
+            modelBuilder.Entity("Kanini_Assessment.Models.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Roles")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("users");
+                });
+
             modelBuilder.Entity("Kanini_Assessment.Models.Rooms", b =>
                 {
                     b.HasOne("Kanini_Assessment.Models.Hotels", "Hotels")
