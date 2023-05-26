@@ -32,8 +32,56 @@ namespace Kanini_Assessment.Controllers
             catch (Exception err)
             {
                 return BadRequest(err.Message);
+            }      
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Hotels>>> GetHotels()
+        {
+            try
+            {
+                var ht = await _context.GetHotels();
+                return Ok(ht);
             }
-            
+            catch (Exception er)
+            {
+                return BadRequest(er.Message);
+            }
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Hotels>> GetHotel(int id)
+        {
+            try
+            {
+                var ht = await _context.GetHotel(id);
+                return ht;
+            }
+            catch (Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Hotels>> PutHotel(int id, Hotels hotels)
+        {
+            try
+            {
+                var ht = await _context.PutHotel(id, hotels);
+                return Ok(ht);
+            }
+            catch (Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<string> DeleteHotel(int id)
+        {
+
+            return await _context.DeleteHotel(id);
         }
     }
 }
