@@ -14,6 +14,8 @@ namespace Kanini_Assessment.Models
 
         public string RoomType { get; set; }
 
+        public string RoomStatus { get; set; }
+
         public string RoomPricePerNight { get; set;}
 
     }

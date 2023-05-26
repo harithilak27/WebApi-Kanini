@@ -1,4 +1,5 @@
 using Kanini_Assessment.Models;
+using Kanini_Assessment.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddDbContext<HotelContext>(optionsAction: options => options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
+builder.Services.AddScoped<IHotel, Hotelcl>();  
+
 
 var app = builder.Build();
 

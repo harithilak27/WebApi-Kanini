@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Kanini_Assessment.Models;
+using Kanini_Assessment.Repository;
 
 namespace Kanini_Assessment.Controllers
 {
@@ -13,13 +14,26 @@ namespace Kanini_Assessment.Controllers
     [ApiController]
     public class HotelsController : ControllerBase
     {
-        private readonly HotelContext _context;
+        private readonly IHotel _context;
 
-        public HotelsController(HotelContext context)
+        public HotelsController(IHotel context)
         {
             _context = context;
         }
 
-        
+        [HttpPost]
+        public async Task<ActionResult<Hotels>> PostHotel(Hotels hotel)
+        {
+            try 
+            {
+                var item = await _context.PostHotel(hotel);
+                return Ok(item);
+            }
+            catch (Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+            
+        }
     }
 }

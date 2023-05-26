@@ -32,6 +32,7 @@ namespace Kanini_Assessment.Migrations
                     HotelId = table.Column<int>(type: "int", nullable: false),
                     HotelsHotelId = table.Column<int>(type: "int", nullable: false),
                     RoomType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RoomStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RoomPricePerNight = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
