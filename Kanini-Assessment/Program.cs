@@ -19,7 +19,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<HotelContext>(optionsAction: options => options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
 builder.Services.AddScoped<IHotel, Hotelcl>();
 builder.Services.AddScoped<IRoom, Roomcls>();
-builder.Services.AddScoped<IUser,User>();
+builder.Services.AddScoped<IUser,Usercl>();
 
 
 //---------------------------------------------------------------------

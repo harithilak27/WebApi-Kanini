@@ -2,7 +2,7 @@
 using Kanini_Assessment.Repository.Room;
 using Kanini_Assessment.Repository.users;
 
-namespace Kanini_Assessment.Repository.User
+namespace Kanini_Assessment.Repository.users
 {
     public class Usercl : IUser
     {
