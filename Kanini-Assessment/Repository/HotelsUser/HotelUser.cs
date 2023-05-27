@@ -2,11 +2,14 @@
 {
     public class HotelUser
     {
+        public string? Place { get; set; } = string.Empty;
         public string? HotelName { get; set; } = string.Empty;
 
         public string? Phone { get; set; } = string.Empty;
 
-        public int Count { get; set; }
+        public int TotalRoomCount { get; set; }
+
+
 
     }
 }

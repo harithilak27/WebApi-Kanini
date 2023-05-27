@@ -1,11 +1,18 @@
-﻿using Kanini_Assessment.Repository;
-using Kanini_Assessment.Repository.HotelsUser;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Kanini_Assessment.Models;
+using Kanini_Assessment.Repository;
+using Microsoft.AspNetCore.Authorization;
+using Kanini_Assessment.Repository.HotelsUser;
 
 namespace Kanini_Assessment.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/GetHotelUser")]
     [ApiController]
     public class GetHotelUser : ControllerBase
     {
@@ -20,6 +27,12 @@ namespace Kanini_Assessment.Controllers
         public Task<IEnumerable<HotelUser>> GetAvailableHotels()
         {
             return _context.GetAvailableHotels();
+        }
+
+        //[HttpGet]
+        public Task<IEnumerable<HotelUser>> GetAvailablePlaceHotels()
+        {
+            return _context.GetAvailablePlaceHotels();
         }
 
     }
