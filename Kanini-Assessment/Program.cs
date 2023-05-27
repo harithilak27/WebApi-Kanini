@@ -1,5 +1,6 @@
 using Kanini_Assessment.Models;
 using Kanini_Assessment.Repository;
+using Kanini_Assessment.Repository.HotelsUser;
 using Kanini_Assessment.Repository.Room;
 using Kanini_Assessment.Repository.users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -20,6 +21,7 @@ builder.Services.AddDbContext<HotelContext>(optionsAction: options => options.Us
 builder.Services.AddScoped<IHotel, Hotelcl>();
 builder.Services.AddScoped<IRoom, Roomcls>();
 builder.Services.AddScoped<IUser,Usercl>();
+builder.Services.AddScoped<IHotelUsere, UserGetHotel>();
 
 
 //---------------------------------------------------------------------

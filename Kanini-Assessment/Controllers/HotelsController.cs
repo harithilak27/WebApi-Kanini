@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Kanini_Assessment.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class HotelsController : ControllerBase

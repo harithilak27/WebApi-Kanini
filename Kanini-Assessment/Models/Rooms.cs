@@ -9,8 +9,8 @@ namespace Kanini_Assessment.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int RoomId { get; set; }
 
-        public int HotelId { get; set; }
-        public Hotels Hotels { get; set; } 
+        [ForeignKey(nameof(Hotels))]
+        public int HotelId { get; set; } 
 
         public string RoomType { get; set; }
 

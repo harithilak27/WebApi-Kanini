@@ -45,10 +45,10 @@ namespace Kanini_Assessment.Migrations
                 {
                     RoomId = table.Column<int>(type: "int", nullable: false),
                     HotelId = table.Column<int>(type: "int", nullable: false),
-                    HotelsHotelId = table.Column<int>(type: "int", nullable: false),
                     RoomType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RoomStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RoomPricePerNight = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    RoomPricePerNight = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HotelsHotelId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -57,8 +57,7 @@ namespace Kanini_Assessment.Migrations
                         name: "FK_rooms_hotels_HotelsHotelId",
                         column: x => x.HotelsHotelId,
                         principalTable: "hotels",
-                        principalColumn: "HotelId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "HotelId");
                 });
 
             migrationBuilder.CreateIndex(
