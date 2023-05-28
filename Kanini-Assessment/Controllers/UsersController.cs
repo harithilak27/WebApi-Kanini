@@ -6,7 +6,6 @@ using Kanini_Assessment.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Kanini_Assessment.Models;
 
 namespace SampOnetoManyAPI.Controllers
 {

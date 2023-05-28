@@ -28,7 +28,10 @@ namespace Kanini_Assessment.Repository.HotelsUser
                            Phone = h.Phone,
                            TotalRoomCount = context.rooms.Count(s => s.RoomStatus == "Available")
                        }).ToListAsync();
-
+            if (ans == null)
+            {
+                throw new Exception("hotel does not have available rooms");
+            }
             return await ans;
         }
 
@@ -46,7 +49,10 @@ namespace Kanini_Assessment.Repository.HotelsUser
                              Phone = h.Phone,
                              TotalRoomCount = context.rooms.Count(s => s.RoomStatus == "Available")
                          }).ToListAsync();
-
+            if (place == null)
+            {
+                throw new Exception("Hotel does not in this place for booking");
+            }
             return await place;
         }
 
@@ -64,7 +70,10 @@ namespace Kanini_Assessment.Repository.HotelsUser
                              RoomPricePerNight = r.RoomPricePerNight,
                              RoomType = r.RoomType,
                          }).ToListAsync();
-
+            if(price == null) 
+            {
+                throw new Exception("Price range hotel not available");
+            }
             return await price;
         }
 

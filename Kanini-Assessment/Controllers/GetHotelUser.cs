@@ -24,21 +24,45 @@ namespace Kanini_Assessment.Controllers
         }
 
         [HttpGet]
-        public Task<IEnumerable<HotelUser>> GetAvailableHotels()
+        public async Task<ActionResult<IEnumerable<HotelUser>>> GetAvailableHotels()
         {
-            return _context.GetAvailableHotels();
+            try
+            {
+                var ok = await _context.GetAvailableHotels();
+                return Ok(ok);
+            }
+            catch (Exception err)
+            {
+                return BadRequest(err.Message);
+            }
         }
 
         [HttpGet("Availableplacehotels")]
-        public Task<IEnumerable<HotelUser>> GetAvailablePlaceHotels()
+        public async Task<ActionResult<IEnumerable<HotelUser>>> GetAvailablePlaceHotels()
         {
-            return _context.GetAvailablePlaceHotels();
+            try
+            {
+                var ok = await _context.GetAvailablePlaceHotels();
+                return Ok(ok);
+            }
+            catch (Exception err)
+            {
+                return BadRequest(err.Message);
+            }
         }
 
         [HttpGet("AvailablePricehotels")]
-        public Task<IEnumerable<HotelUser>> GetAvailablePriceHotels()
+        public async Task<ActionResult<IEnumerable<HotelUser>>> GetAvailablePriceHotels()
         {
-            return _context.GetAvailablePriceHotels();
+            try
+            {
+                var ok = await _context.GetAvailablePriceHotels();
+                return Ok(ok);
+            }
+            catch (Exception err)
+            {
+                return BadRequest(err.Message);
+            }
         }
 
     }

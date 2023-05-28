@@ -12,11 +12,11 @@ namespace Kanini_Assessment.Models
         [ForeignKey(nameof(Hotels))]
         public int HotelId { get; set; } 
 
-        public string RoomType { get; set; }
+        public string? RoomType { get; set; }
 
-        public string RoomStatus { get; set; }
+        public string? RoomStatus { get; set; }
 
-        public string RoomPricePerNight { get; set;}
+        public string? RoomPricePerNight { get; set;}
 
     }
 }
