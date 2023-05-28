@@ -50,6 +50,24 @@ namespace Kanini_Assessment.Repository.HotelsUser
             return await place;
         }
 
+        public async Task<IEnumerable<HotelUser>> GetAvailablePriceHotels()
+        {
+            var price = (from h in context.hotels
+                         join r in context.rooms on h.HotelId equals r.HotelId
+                         where r.RoomPricePerNight == "200"
+                         select new HotelUser()
+                         {
+                             Place = h.Place,
+                             HotelName = h.HotelName,
+                             Phone = h.Phone,
+                             TotalRoomCount = context.rooms.Count(s => s.RoomStatus == "Available"),
+                             RoomPricePerNight = r.RoomPricePerNight,
+                             RoomType = r.RoomType,
+                         }).ToListAsync();
+
+            return await price;
+        }
+
     }
 }
 

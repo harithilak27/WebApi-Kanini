@@ -9,7 +9,11 @@
 
         public int TotalRoomCount { get; set; }
 
+        public string RoomType { get; set; }
 
+        public string RoomStatus { get; set; }
+
+        public string? RoomPricePerNight { get; set; }
 
     }
 }

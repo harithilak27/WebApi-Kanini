@@ -29,10 +29,16 @@ namespace Kanini_Assessment.Controllers
             return _context.GetAvailableHotels();
         }
 
-        //[HttpGet]
+        [HttpGet("Availableplacehotels")]
         public Task<IEnumerable<HotelUser>> GetAvailablePlaceHotels()
         {
             return _context.GetAvailablePlaceHotels();
+        }
+
+        [HttpGet("AvailablePricehotels")]
+        public Task<IEnumerable<HotelUser>> GetAvailablePriceHotels()
+        {
+            return _context.GetAvailablePriceHotels();
         }
 
     }
